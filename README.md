@@ -11,3 +11,8 @@ Install command
 git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
 Remember to run :helptags ~/.vim/pack/dist/start/vim-airline/doc to generate help tags
  
+2. Vim-syntastic(https://github.com/vim-syntastic/syntastic)
+Install command
+git clone https://github.com/vim-syntastic/syntastic.git ~/.vim/pack/dist/start/vim-syntastic
+Remember to run :helptags ~/.vim/pack/dist/start/vim-syntastic/doc to generate help tags
+
