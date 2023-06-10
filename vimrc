@@ -8,7 +8,8 @@
 " '~/.vimrc', because Vim automatically enters nocompatible mode if that file
 " is present. But we're including it here just in case this config file is
 " loaded some other way (e.g. saved as `foo`, and then Vim started with
-" `vim -u foo`).
+" `vim -u foo` ).
+
 set nocompatible
 
 " Turn on syntax highlighting.
@@ -20,8 +21,9 @@ set shortmess+=I
 " Show line numbers.
 set number
 
+" set cursorline
 try
-    colorscheme desert
+    colorscheme gruvbox
 catch
 endtry
 
@@ -71,9 +73,9 @@ set expandtab
 " Be smart when using tabs 
 set smarttab
 
-" 1 tab== 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab== 2 spaces
+set shiftwidth=2
+set tabstop=2
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -109,3 +111,26 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " mapping jj to <ESC>
 imap jj <ESC>
+
+" License information
+let g:licenses_copyright_holders_name = 'Ferdous,S M <ferdous.csebuet@egmail.com>'
+let g:licenses_authors_name = 'Ferdous,S M <ferdous.csebuet@egmail.com>'
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
+
+" Jump to the last position when reopening
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+" Color column 80 for better readability
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
